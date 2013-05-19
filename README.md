@@ -1,4 +1,5 @@
-# csv
+[![build status](https://secure.travis-ci.org/avoidwork/csv.js.png)](http://travis-ci.org/avoidwork/csv.js)
+# csv.js
 
 Encodes Arrays, Objects or JSON as CSV
 
@@ -6,16 +7,10 @@ Encodes Arrays, Objects or JSON as CSV
 Install the module with: `npm install csv.js`
 
 ```javascript
-var csv = require('csv');
+var csv = require('csv.js');
 
 csv("[{\"prop\":\"value\"},{\"prop\":\"value2\"}]"); // "prop\nvalue\value2"
 ```
-
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
 
 ## License
 Copyright (c) 2013 Jason Mulligan  

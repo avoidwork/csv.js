@@ -3,7 +3,7 @@
 Encodes Arrays, Objects or JSON as CSV
 
 ## Getting Started
-Install the module with: `npm install csv`
+Install the module with: `npm install csv.js`
 
 ```javascript
 var csv = require('csv');

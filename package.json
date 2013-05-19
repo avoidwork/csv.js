@@ -1,7 +1,7 @@
 {
   "name": "csv.js",
   "description": "Encodes Arrays, Objects or JSON as CSV",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://csvjs.com",
   "author": {
     "name": "Jason Mulligan",

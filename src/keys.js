@@ -13,17 +13,11 @@ var keys = function () {
 	}
 	else {
 		return function ( obj ) {
-			var keys = [],
-			    has  = Object.prototype.hasOwnProperty;
+			var keys = [];
 
-			for ( i in obj ) {
-				if ( has.call( obj, i ) ) {
-					keys.push( i );
-				}
-				else {
-					break;
-				}
-			}
+			iterate( obj, function ( v, k ) {
+				keys.push( k );
+			});
 
 			return keys;
 		};

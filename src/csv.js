@@ -14,21 +14,28 @@ var csv = function ( arg, delimiter, header ) {
 	    result = "";
 
 	if ( obj instanceof Array ) {
-		if ( header ) {
-			result = ( keys( obj[0] ).join( delimiter ) + "\n" );
-		}
+		if ( obj[0] instanceof Object ) {
+			if ( header ) {
+				result = ( keys( obj[0] ).join( delimiter ) + "\n" );
+			}
 
-		result += obj.map( function ( i ) {
-			return csv( i, delimiter, false );
-		}).join( "\n" );
+			result += obj.map( function ( i ) {
+				return csv( i, delimiter, false );
+			}).join( "\n" );
+		}
+		else {
+			result += ( prepare( obj, delimiter ) + "\n" );
+		}
 	}
 	else {
 		if ( header ) {
 			result = ( keys( obj ).join( delimiter ) + "\n" );
 		}
 
-		result += ( cast( obj ).map( prepare ).join( delimiter ) + "\n" );
+		result += ( cast( obj ).map( function ( i ) {
+			return prepare( i, delimiter );
+		}).join( delimiter ) + "\n" );
 	}
 
-	return result.replace(/\n$/, "");
+	return result.replace( REGEX_NL, "" );
 };

@@ -1,4 +1,5 @@
-# csv
+[![build status](https://secure.travis-ci.org/avoidwork/csv.js.png)](http://travis-ci.org/avoidwork/csv.js)
+# csv.js
 
 Encodes Arrays, Objects or JSON as CSV
 

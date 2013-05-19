@@ -1,0 +1,8 @@
+/node_modules/
+/test/
+/src/
+/lib/csv.min.js
+.git
+.gitignore
+.travis.yml
+Gruntfile.js

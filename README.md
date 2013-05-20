@@ -9,7 +9,7 @@ Install the module with: `npm install csv.js`
 ```javascript
 var csv = require('csv.js');
 
-csv("[{\"prop\":\"value\"},{\"prop\":\"value2\"}]"); // "prop\nvalue\value2"
+csv("[{\"prop\":\"value\"},{\"prop\":\"value2\"}]"); // "prop\nvalue\nvalue2"
 ```
 
 ## License

@@ -2,7 +2,7 @@
   "name": "csv.js",
   "description": "Encodes Arrays, Objects or JSON as CSV",
   "version": "0.1.2",
-  "homepage": "http://csvjs.com",
+  "homepage": "https://github.com/avoidwork/csv.js",
   "author": {
     "name": "Jason Mulligan",
     "email": "jason.mulligan@avoidwork.com"
@@ -34,5 +34,5 @@
     "grunt-contrib-nodeunit" : "~ 0.1.2",
     "grunt-contrib-uglify"   : "~ 0.1.2"
   },
-  "keywords": ["csv", "encoder", "json"]
+  "keywords": ["csv", "encode", "transform", "json", "array", "object"]
 }

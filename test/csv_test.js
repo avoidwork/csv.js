@@ -42,7 +42,7 @@ exports["object"] = {
 	test: function (test) {
 		test.expect(4);
 		test.equal(typeof csv(this.data), "string", "Should be `string`");
-		test.equal(csv(this.data).split("\n").length, 2, "Should be `3`");
+		test.equal(csv(this.data).split("\n").length, 2, "Should be `2`");
 		test.equal(csv(this.data).split("\n")[0], "name", "Should be `name`");
 		test.equal(csv(this.data).split("\n")[1], "John Doe", "Should be `John Doe`");
 		test.done();

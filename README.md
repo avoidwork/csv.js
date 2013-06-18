@@ -15,12 +15,16 @@ csv("[{\"prop\":\"value\"},{\"prop\":\"value2\"}]"); // "prop\nvalue\nvalue2"
 
 csv.js supports AMD loaders (require.js, curl.js, etc.), node.js & npm (npm install csv.js), or using a script tag.
 
-## Information
+## Support
 
-#### License
+If you're having problems with using the project, use the support forum at CodersClan.
+
+<a href="http://codersclan.net/forum/index.php?repo_id=10"><img src="http://www.codersclan.net/graphics/getSupport_blue_big.png" width="160"></a>
+
+## License
 
 csv.js is licensed under BSD-3 https://raw.github.com/avoidwork/csv.js/master/LICENSE
 
-#### Copyright
+## Copyright
 
 Copyright (c) 2013, Jason Mulligan <jason.mulligan@avoidwork.com>

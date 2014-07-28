@@ -1,16 +1,13 @@
-// Setting version hint
-csv.version = "{{VERSION}}";
-
 // CommonJS, AMD, script tag
-if ( typeof exports !== "undefined" ) {
-	module.exports = csv;
+if ( typeof exports != "undefined" ) {
+	module.exports = iface;
 }
-else if ( typeof define === "function" ) {
+else if ( typeof define == "function" ) {
 	define( function () {
-		return csv;
-	});
+		return iface;
+	} );
 }
 else {
-	global.csv = csv;
+	global.csv = iface;
 }
-})( this );
+} )( this );

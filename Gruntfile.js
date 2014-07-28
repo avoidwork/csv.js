@@ -19,11 +19,14 @@ module.exports = function(grunt) {
 						"<banner>",
 						"src/intro.js",
 						"src/cast.js",
-						"src/csv.js",
+						"src/coerce.js",
 						"src/decode.js",
+						"src/encode.js",
 						"src/iterate.js",
 						"src/keys.js",
+						"src/parse.js",
 						"src/prepare.js",
+						"src/interface.js",
 						"src/outro.js",
 					],
 					dest : "lib/<%= pkg.name %>"
@@ -31,6 +34,29 @@ module.exports = function(grunt) {
 		},
 		nodeunit: {
 			all : ["test/*.js"]
+		},
+		jshint : {
+			options : {
+				jshintrc : ".jshintrc"
+			},
+			src : "<%= concat.dist.dest %>"
+		},
+		sed : {
+			version : {
+				pattern : "{{VERSION}}",
+				replacement : "<%= pkg.version %>",
+				path : ["<%= concat.dist.dest %>"]
+			}
+		},
+		watch : {
+			js : {
+				files : "<%= concat.dist.src %>",
+				tasks : "default"
+			},
+			pkg: {
+				files : "package.json",
+				tasks : "default"
+			}
 		},
 		uglify: {
 			options: {
@@ -54,23 +80,16 @@ module.exports = function(grunt) {
 				}
 			}
 		}
-  });
+	});
 
-  grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-nodeunit");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-sed");
+	grunt.loadNpmTasks("grunt-contrib-concat");
+	grunt.loadNpmTasks("grunt-contrib-nodeunit");
+	grunt.loadNpmTasks("grunt-contrib-jshint");
+	grunt.loadNpmTasks("grunt-contrib-watch");
+	grunt.loadNpmTasks("grunt-contrib-uglify");
 
-  grunt.registerTask("test", ["nodeunit"]);
-
-  grunt.registerTask("version", function () {
-	var cfg = grunt.config("pkg"),
-		ver = cfg.version,
-		fn  = "lib/" + cfg.name,
-		fp  = grunt.file.read(fn);
-
-	console.log("Setting version to: " + ver);
-	grunt.file.write(fn, fp.replace(/\{\{VERSION\}\}/g, ver));
-  });
-
-  grunt.registerTask("default", ["concat", "version", "uglify", "test"]);
+	grunt.registerTask("build", ["concat", "sed", "uglify"]);
+	grunt.registerTask("test", ["jshint", "nodeunit"]);
+	grunt.registerTask("default", ["build", "test"]);
 };

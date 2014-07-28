@@ -6,7 +6,7 @@
  * @return {Array}     Array of the keys
  */
 var keys = function () {
-	if ( typeof Object.keys === "function" ) {
+	if ( typeof Object.keys == "function" ) {
 		return function ( obj ) {
 			return Object.keys( obj );
 		};
@@ -17,7 +17,7 @@ var keys = function () {
 
 			iterate( obj, function ( v, k ) {
 				keys.push( k );
-			});
+			} );
 
 			return keys;
 		};

@@ -7,7 +7,7 @@
  * @return {Array}       Object as an Array
  */
 var cast = function () {
-	if ( !ie || version > 8) {
+	if ( !ie || version > 8 ) {
 		return function ( obj, key ) {
 			key = ( key === true );
 			var o = [];
@@ -16,10 +16,9 @@ var cast = function () {
 				o = Array.prototype.slice.call( obj );
 			}
 			else {
-				key ? o = keys( obj )
-				    : iterate( obj, function ( i ) {
-				    	o.push( i );
-				      });
+				key ? o = keys( obj ) : iterate( obj, function ( i ) {
+					o.push( i );
+				} );
 			}
 
 			return o;
@@ -39,14 +38,13 @@ var cast = function () {
 						if ( idx !== "length" ) {
 							o.push( i );
 						}
-					});
+					} );
 				}
 			}
 			else {
-				key ? o = keys( obj )
-				    : iterate(obj, function ( i ) {
-				    	o.push(i);
-				      });
+				key ? o = keys( obj ) : iterate( obj, function ( i ) {
+					o.push(i);
+				} );
 			}
 
 			return o;

@@ -1,30 +1,27 @@
-[![build status](https://secure.travis-ci.org/avoidwork/csv.js.png)](http://travis-ci.org/avoidwork/csv.js)
 # csv.js
+Simplify encoding & decoding CSV. Easy exporting from an API, or reformatting on a Client!
 
-Encodes Arrays, Objects or JSON as CSV. Easy exporting from an API, or reformatting on a Client!
+[![build status](https://secure.travis-ci.org/avoidwork/csv.js.svg)](http://travis-ci.org/avoidwork/csv.js)
+
 
 ## Example
-
 ```javascript
-var csv = require('csv.js');
+var csv = require( "csv.js" );
+var encoded = csv.encode( [{prop: "value"}, {prop: "value2"}] );
 
-csv("[{\"prop\":\"value\"},{\"prop\":\"value2\"}]"); // "prop\nvalue\nvalue2"
+console.log( encoded );
+
+//
+prop
+value
+value2
 ```
 
 ## How can I load csv.js?
-
-csv.js supports AMD loaders (require.js, curl.js, etc.), node.js & npm (npm install csv.js), or using a script tag.
-
-## Support
-
-If you're having problems with using the project, use the support forum at CodersClan.
-
-<a href="http://codersclan.net/forum/index.php?repo_id=10"><img src="http://www.codersclan.net/graphics/getSupport_blue_big.png" width="160"></a>
+csv.js supports AMD loaders (require.js, curl.js, etc.), CommonJS, node.js & npm (npm install csv.js), or using a script tag.
 
 ## License
-
 csv.js is licensed under BSD-3 https://raw.github.com/avoidwork/csv.js/master/LICENSE
 
 ## Copyright
-
-Copyright (c) 2013, Jason Mulligan <jason.mulligan@avoidwork.com>
+Copyright (c) 2014, Jason Mulligan <jason.mulligan@avoidwork.com>

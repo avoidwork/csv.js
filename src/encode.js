@@ -1,16 +1,16 @@
 /**
- * Transforms JSON to CSV
- * 
- * @method csv
+ * Encodes `arg` as CSV
+ *
+ * @method encode
  * @param  {String}  arg       Array, Object or JSON String to transform
  * @param  {String}  delimiter [Optional] Character to separate fields
  * @param  {Boolean} header    [Optional] False to not include field names as first row
  * @return {String}            CSV string
  */
-var csv = function ( arg, delimiter, header ) {
+function encode ( arg, delimiter, header ) {
 	delimiter  = delimiter || ",";
 	header     = ( header !== false );
-	var obj    = decode( arg ) || arg,
+	var obj    = parse( arg ) || arg,
 	    result = "";
 
 	if ( obj instanceof Array ) {
@@ -20,8 +20,8 @@ var csv = function ( arg, delimiter, header ) {
 			}
 
 			result += obj.map( function ( i ) {
-				return csv( i, delimiter, false );
-			}).join( "\n" );
+				return encode( i, delimiter, false );
+			} ).join( "\n" );
 		}
 		else {
 			result += ( prepare( obj, delimiter ) + "\n" );
@@ -34,8 +34,8 @@ var csv = function ( arg, delimiter, header ) {
 
 		result += ( cast( obj ).map( function ( i ) {
 			return prepare( i, delimiter );
-		}).join( delimiter ) + "\n" );
+		} ).join( delimiter ) + "\n" );
 	}
 
 	return result.replace( REGEX_NL, "" );
-};
+}

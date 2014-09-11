@@ -26,6 +26,7 @@ module.exports = function(grunt) {
 						"src/keys.js",
 						"src/parse.js",
 						"src/prepare.js",
+						"src/trim.js",
 						"src/interface.js",
 						"src/outro.js",
 					],

@@ -23,7 +23,7 @@ function decode ( arg, delimiter ) {
 
 		n = -1;
 		while ( ++n < x ) {
-			obj[keys[n]] = coerce( row[n].replace( /^"|"$/g, "" ) );
+			obj[keys[n]] = coerce( ( row[n] || "" ).replace( /^"|"$/g, "" ) );
 		}
 
 		result.push( obj );

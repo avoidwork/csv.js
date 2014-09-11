@@ -7,6 +7,7 @@ var csv  = require("../lib/csv.js"),
 doc  = "a,b,c\n";
 doc += "1,2,3\n";
 doc += "\"hello, world\",2,3";
+doc += "1,,3\n";
 
 exports["decode"] = {
 	setUp: function (done) {
@@ -16,7 +17,7 @@ exports["decode"] = {
 	test: function (test) {
 		test.expect(5);
 		test.equal(this.result instanceof Array, true, "Should be `true`");
-		test.equal(this.result.length, 2, "Should be `2`");
+		test.equal(this.result.length, 3, "Should be `3`");
 		test.equal(typeof this.result[0].a, "number", "Should be `number`");
 		test.equal(typeof this.result[1].a, "string", "Should be `string`");
 		test.equal(this.result[1].a, "hello, world", "Should be `hello, world`");

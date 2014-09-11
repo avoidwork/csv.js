@@ -8,7 +8,7 @@
  */
 function decode ( arg, delimiter ) {
 	delimiter  = delimiter || ",";
-	var regex  = new RegExp( delimiter + "(?=(?:[^\"]|\"[^\"]*\")*$)" ),
+	var regex  = new RegExp( delimiter + "(?=(?:[^\"]|\"(?:[^\"])[^\"]*\")*$)" ),
 	    rows   = trim( arg ).split( "\n" ),
 	    keys   = rows.shift().split( delimiter ),
 	    result = [],

@@ -8,6 +8,8 @@ doc  = "a,b,c\n";
 doc += "1,2,3\n";
 doc += "\"hello, world\",2,3\n";
 doc += "1,,3\n";
+doc += "\"\"hello, world\"\",2,3\n";
+doc += "\"\"hello\", world\",2,3\n";
 
 exports["decode"] = {
 	setUp: function (done) {
@@ -15,9 +17,9 @@ exports["decode"] = {
 		done();
 	},
 	test: function (test) {
-		test.expect(9);
+		test.expect(11);
 		test.equal(this.result instanceof Array, true, "Should be `true`");
-		test.equal(this.result.length, 3, "Should be `3`");
+		test.equal(this.result.length, 5, "Should be `5`");
 		test.equal(typeof this.result[0].a, "number", "Should be `number`");
 		test.equal(typeof this.result[1].a, "string", "Should be `string`");
 		test.equal(this.result[1].a, "hello, world", "Should be `hello, world`");
@@ -25,6 +27,8 @@ exports["decode"] = {
 		test.equal(typeof this.result[2].b, "string", "Should be `string`");
 		test.equal(typeof this.result[2].c, "number", "Should be `number`");
 		test.equal(this.result[2].b, "", "Should be ``");
+		test.equal(this.result[3].a, "\"hello, world\"", "Should be `\"hello, world\"`");
+		test.equal(this.result[4].a, "\"hello\", world", "Should be `\"hello\", world`");
 		test.done();
 	}
 };

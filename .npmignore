@@ -4,6 +4,6 @@
 /lib/csv.min.js
 .git
 .gitignore
-.jshint
+.eslintrc
 .travis.yml
 Gruntfile.js

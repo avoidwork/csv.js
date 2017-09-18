@@ -1,10 +1,10 @@
-/**
- * Interface
- *
- * @type {Object}
- */
-var iface = {
-	decode  : decode,
-	encode  : encode,
-	version : "{{VERSION}}"
-};
+	/**
+	 * Interface
+	 *
+	 * @type {Object}
+	 */
+	const iface = {
+		decode: decode,
+		encode: encode,
+		version: "{{VERSION}}"
+	};

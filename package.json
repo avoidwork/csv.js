@@ -1,12 +1,10 @@
 {
   "name": "csv.js",
   "description": "Simplify encoding & decoding CSV",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/avoidwork/csv.js",
-  "author": {
-    "name": "Jason Mulligan",
-    "email": "jason.mulligan@avoidwork.com"
-  },
+  "author": "Jason Mulligan <jason.mulligan@avoidwork.com>",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/avoidwork/csv.js.git"
@@ -14,12 +12,6 @@
   "bugs": {
     "url": "https://github.com/avoidwork/csv.js/issues"
   },
-  "licenses": [
-    {
-      "type": "BSD-3",
-      "url": "https://raw.github.com/avoidwork/csv.js/master/LICENSE"
-    }
-  ],
   "main": "lib/csv",
   "engines": {
     "node": ">= 0.4.0"
@@ -28,14 +20,25 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-cli": "~ 0.1.6",
-    "grunt-sed": "~0.1",
-    "grunt-contrib-concat": "~ 0.1.3",
-    "grunt-contrib-nodeunit": "~ 0.1.2",
-    "grunt-contrib-uglify": "~ 0.1.2",
-    "grunt-contrib-jshint": "~0.1",
-    "grunt-contrib-watch": "~0.2"    
+    "babel-preset-es2015": "~6.22.0",
+    "grunt": "~1.0.1",
+    "grunt-babel": "~6.0.0",
+    "grunt-cli": "~1.2.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-nodeunit": "~1.0.0",
+    "grunt-contrib-uglify": "~2.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-eslint": "~19.0.0",
+    "grunt-replace": "~1.0.1"
   },
-  "keywords": ["csv", "encode", "decode", "transform", "json", "array", "object", "tsv"]
+  "keywords": [
+    "csv",
+    "encode",
+    "decode",
+    "transform",
+    "json",
+    "array",
+    "object",
+    "tsv"
+  ]
 }

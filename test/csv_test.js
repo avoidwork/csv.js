@@ -1,17 +1,17 @@
 "use strict";
 
-var csv  = require("../lib/csv.js"),
-    data = [{name: "John Doe"}, {name: "Josh Davis"}],
-    doc;
+const csv = require("../lib/csv.js"),
+	data = [{name: "John Doe"}, {name: "Josh Davis"}];
+let doc;
 
-doc  = "a,b,c\n";
+doc = "a,b,c\n";
 doc += "1,2,3\n";
 doc += "\"hello, world\",2,3\n";
 doc += "1,,3\n";
 doc += "\"\"hello, world\"\",2,3\n";
 doc += "\"\"hello\", world\",2,3\n";
 
-exports["decode"] = {
+exports.decode = {
 	setUp: function (done) {
 		this.result = csv.decode(doc);
 		done();
@@ -33,7 +33,7 @@ exports["decode"] = {
 	}
 };
 
-exports["encode_array1"] = {
+exports.encode_array1 = {
 	setUp: function (done) {
 		this.data = data;
 		done();
@@ -49,9 +49,9 @@ exports["encode_array1"] = {
 	}
 };
 
-exports["encode_array2"] = {
+exports.encode_array2 = {
 	setUp: function (done) {
-		this.data   = [1,2,3,4,5];
+		this.data = [1, 2, 3, 4, 5];
 		this.result = "\"" + this.data.toString() + "\"";
 		done();
 	},
@@ -64,7 +64,7 @@ exports["encode_array2"] = {
 	}
 };
 
-exports["encode_object"] = {
+exports.encode_object = {
 	setUp: function (done) {
 		this.data = data[0];
 		done();
@@ -79,7 +79,7 @@ exports["encode_object"] = {
 	}
 };
 
-exports["encode_json"] = {
+exports.encode_json = {
 	setUp: function (done) {
 		this.data = JSON.stringify(data);
 		done();

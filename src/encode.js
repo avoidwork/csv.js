@@ -7,7 +7,7 @@
 	 * @param  {Boolean} header    [Optional] False to not include field names as first row
 	 * @return {String}            CSV string
 	 */
-	function encode(arg, delimiter = ",", header = true, keyRef) {
+	function encode (arg, delimiter = ",", header = true, keyRef) {
 		const obj = parse(arg);
 		let result = "",
 			ref;
@@ -19,7 +19,7 @@
 					result = ref.join(delimiter) + "\n";
 				}
 
-				result += obj.map(i =>encode(i, delimiter, false, ref)).join("\n");
+				result += obj.map(i => encode(i, delimiter, false, ref)).join("\n");
 			} else {
 				result += prepare(obj, delimiter) + "\n";
 			}

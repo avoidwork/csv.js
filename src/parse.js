@@ -5,11 +5,10 @@
 	 * @param  {String} arg String to parse
 	 * @return {Mixed}      Resulting from parsing JSON, or undefined
 	 */
-	function parse(arg) {
+	function parse (arg) {
 		try {
 			return JSON.parse(arg);
-		}
-		catch (e) {
+		} catch (e) {
 			return arg;
 		}
 	}

@@ -14,15 +14,15 @@
 					throw new Error("Invalid arguments");
 				}
 
-				(keyRef || Object.keys(obj)).forEach(i =>fn.call(obj, obj[i], i));
+				(keyRef || Object.keys(obj)).forEach(i => fn.call(obj, obj[i], i));
 
 				return obj;
 			};
-		}
-		else {
+		} else {
 			return function (obj, fn, keyRef) {
-				var has = Object.prototype.hasOwnProperty,
-					i, result;
+				const has = Object.prototype.hasOwnProperty;
+
+				let i, result;
 
 				if (typeof fn != "function") {
 					throw new Error("Invalid arguments");
@@ -38,8 +38,7 @@
 							if (result === false) {
 								break;
 							}
-						}
-						else {
+						} else {
 							break;
 						}
 					}

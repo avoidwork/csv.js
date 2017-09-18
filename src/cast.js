@@ -8,19 +8,19 @@
 	 */
 	const cast = function () {
 		if (!ie || version > 8) {
-			return (obj, key = false) => {
+			return (obj, key = false, ref) => {
 				let o = [];
 
 				if (!isNaN(obj.length)) {
 					o = Array.prototype.slice.call(obj);
 				} else {
-					key ? o = keys(obj) : iterate(obj, i => o.push(i));
+					key ? o = keys(obj, ref) : iterate(obj, i => o.push(i), ref);
 				}
 
 				return o;
 			};
 		} else {
-			return (obj, key = false) => {
+			return (obj, key = false, ref) => {
 				let o = [];
 
 				if (!isNaN(obj.length)) {
@@ -34,7 +34,7 @@
 						});
 					}
 				} else {
-					key ? o = keys(obj) : iterate(obj, i => o.push(i));
+					key ? o = keys(obj, ref) : iterate(obj, i => o.push(i), ref);
 				}
 
 				return o;

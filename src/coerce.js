@@ -7,33 +7,25 @@
 	 * @return {Mixed}        Primitive version of the String
 	 */
 	function coerce (value) {
-		var tmp;
+		let tmp;
 
 		if (value === null || value === undefined) {
 			return undefined;
-		}
-		else if (value === "true") {
+		} else if (value === "true") {
 			return true;
-		}
-		else if (value === "false") {
+		} else if (value === "false") {
 			return false;
-		}
-		else if (value === "null") {
+		} else if (value === "null") {
 			return null;
-		}
-		else if (value === "undefined") {
+		} else if (value === "undefined") {
 			return undefined;
-		}
-		else if (value === "") {
+		} else if (value === "") {
 			return value;
-		}
-		else if (!isNaN(tmp = Number(value))) {
+		} else if (!isNaN(tmp = Number(value))) {
 			return tmp;
-		}
-		else if (REGEX_JSON.test(value)) {
-			return parse(value) || value;
-		}
-		else {
+		} else if (REGEX_JSON.test(value)) {
+			return parse(value);
+		} else {
 			return value;
 		}
 	}

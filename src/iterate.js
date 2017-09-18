@@ -9,20 +9,18 @@
 	 */
 	const iterate = function () {
 		if (typeof Object.keys == "function") {
-			return function (obj, fn) {
+			return function (obj, fn, keyRef) {
 				if (typeof fn != "function") {
 					throw new Error("Invalid arguments");
 				}
 
-				Object.keys(obj).forEach(function (i) {
-					return fn.call(obj, obj[i], i);
-				});
+				(keyRef || Object.keys(obj)).forEach(i =>fn.call(obj, obj[i], i));
 
 				return obj;
 			};
 		}
 		else {
-			return function (obj, fn) {
+			return function (obj, fn, keyRef) {
 				var has = Object.prototype.hasOwnProperty,
 					i, result;
 
@@ -30,16 +28,20 @@
 					throw new Error("Invalid arguments");
 				}
 
-				for (i in obj) {
-					if (has.call(obj, i)) {
-						result = fn.call(obj, obj[i], i);
+				if (keyRef !== void 0) {
+					keyRef.forEach(i => fn.call(obj, obj[i], i));
+				} else {
+					for (i in obj) {
+						if (has.call(obj, i)) {
+							result = fn.call(obj, obj[i], i);
 
-						if (result === false) {
+							if (result === false) {
+								break;
+							}
+						}
+						else {
 							break;
 						}
-					}
-					else {
-						break;
 					}
 				}
 

@@ -10,6 +10,6 @@
 			return JSON.parse(arg);
 		}
 		catch (e) {
-			return undefined;
+			return arg;
 		}
 	}

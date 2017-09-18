@@ -7,26 +7,31 @@
 	 * @param  {Boolean} header    [Optional] False to not include field names as first row
 	 * @return {String}            CSV string
 	 */
-	function encode(arg, delimiter = ",", header = true) {
-		const obj = parse(arg) || arg;
-		let result = "";
+	function encode(arg, delimiter = ",", header = true, keyRef) {
+		const obj = parse(arg);
+		let result = "",
+			ref;
 
 		if (obj instanceof Array) {
 			if (obj[0] instanceof Object) {
 				if (header) {
-					result = keys(obj[0]).join(delimiter) + "\n";
+					ref = keys(obj[0]);
+					result = ref.join(delimiter) + "\n";
 				}
 
-				result += obj.map(i =>encode(i, delimiter, false)).join("\n");
+				result += obj.map(i =>encode(i, delimiter, false, ref)).join("\n");
 			} else {
-				result += (prepare(obj, delimiter) + "\n");
+				result += prepare(obj, delimiter) + "\n";
 			}
 		} else {
 			if (header) {
-				result = keys(obj).join(delimiter) + "\n";
+				ref = keys(obj, keyRef);
+				result = ref.join(delimiter) + "\n";
+			} else {
+				ref = keyRef;
 			}
 
-			result += cast(obj).map(i => prepare(i, delimiter)).join(delimiter) + "\n";
+			result += cast(obj, false, ref).map(i => prepare(i, delimiter)).join(delimiter) + "\n";
 		}
 
 		return result.replace(REGEX_NL, "");

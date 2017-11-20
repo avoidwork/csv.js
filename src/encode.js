@@ -11,22 +11,22 @@
 		const obj = parse(arg) || arg;
 		let result = "";
 
-		if (obj instanceof Array) {
+		if (Array.isArray(obj)) {
 			if (obj[0] instanceof Object) {
 				if (header) {
-					result = keys(obj[0]).join(delimiter) + "\n";
+					result = `${keys(obj[0]).join(delimiter)}\n`;
 				}
 
 				result += obj.map(i =>encode(i, delimiter, false)).join("\n");
 			} else {
-				result += (prepare(obj, delimiter) + "\n");
+				result += `${prepare(obj, delimiter)}\n`;
 			}
 		} else {
 			if (header) {
-				result = keys(obj).join(delimiter) + "\n";
+				result = `${keys(obj).join(delimiter)}\n`;
 			}
 
-			result += cast(obj).map(i => prepare(i, delimiter)).join(delimiter) + "\n";
+			result += `${cast(obj).map(i => prepare(i, delimiter)).join(delimiter)}\n`;
 		}
 
 		return result.replace(REGEX_NL, "");

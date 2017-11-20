@@ -9,15 +9,7 @@
 	const cast = function () {
 		if (!ie || version > 8) {
 			return (obj, key = false) => {
-				let o = [];
-
-				if (!isNaN(obj.length)) {
-					o = Array.prototype.slice.call(obj);
-				} else {
-					key ? o = keys(obj) : iterate(obj, i => o.push(i));
-				}
-
-				return o;
+				return !isNaN(obj.length) ? Array.prototype.slice.call(obj) : key ? keys(obj) : keys(obj).map(i => obj[i]);
 			};
 		} else {
 			return (obj, key = false) => {

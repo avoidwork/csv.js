@@ -8,42 +8,36 @@
 	 * @return {Object}       Object
 	 */
 	const iterate = function () {
-		if (typeof Object.keys == "function") {
-			return function (obj, fn) {
-				if (typeof fn != "function") {
-					throw new Error("Invalid arguments");
-				}
+		const keys = Object.keys || function (obj, fn) {
+			const has = Object.prototype.hasOwnProperty;
+			let i, result;
 
-				Object.keys(obj).forEach(function (i) {
-					return fn.call(obj, obj[i], i);
-				});
+			if (typeof fn !== "function") {
+				throw new Error("Invalid arguments");
+			}
 
-				return obj;
-			};
-		}
-		else {
-			return function (obj, fn) {
-				var has = Object.prototype.hasOwnProperty,
-					i, result;
+			for (i in obj) {
+				if (has.call(obj, i)) {
+					result = fn.call(obj, obj[i], i);
 
-				if (typeof fn != "function") {
-					throw new Error("Invalid arguments");
-				}
-
-				for (i in obj) {
-					if (has.call(obj, i)) {
-						result = fn.call(obj, obj[i], i);
-
-						if (result === false) {
-							break;
-						}
-					}
-					else {
+					if (result === false) {
 						break;
 					}
+				} else {
+					break;
 				}
+			}
 
-				return obj;
-			};
-		}
+			return obj;
+		};
+
+		return function (obj, fn) {
+			if (typeof fn !== "function") {
+				throw new Error("Invalid arguments");
+			}
+
+			keys(obj).forEach(i => fn.call(obj, obj[i], i));
+
+			return obj;
+		};
 	}();

@@ -25,7 +25,6 @@ module.exports = function(grunt) {
 						"src/parse.js",
 						"src/prepare.js",
 						"src/trim.js",
-						"src/interface.js",
 						"src/outro.js"
 					],
 					dest : "lib/csv.es6.js"

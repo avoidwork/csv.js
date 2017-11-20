@@ -2,6 +2,7 @@
 
 const csv = require("../lib/csv.js"),
 	data = [{name: "John Doe"}, {name: "Josh Davis"}];
+
 let doc;
 
 doc = "a,b,c\n";

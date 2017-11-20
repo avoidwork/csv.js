@@ -94,3 +94,19 @@ exports.encode_json = {
 		test.done();
 	}
 };
+
+exports.e2e = {
+	setUp: function (done) {
+		this.data = {a: 3, test: "\"value\"", b: 5};
+		done();
+	},
+	test: function (test) {
+		test.expect(5);
+		test.equal(typeof csv.encode(this.data), "string", "Should be `string`");
+		test.equal(csv.encode(this.data).split("\n").length, 3, "Should be `3`");
+		test.equal(csv.decode(csv.encode(this.data))[0].a, 3, "Should be `3`");
+		test.equal(csv.decode(csv.encode(this.data))[0].test, "\"value\"", "Should be `\"value\"`");
+		test.equal(csv.decode(csv.encode(this.data))[0].b, 5, "Should be `5`");
+		test.done();
+	}
+};

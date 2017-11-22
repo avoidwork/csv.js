@@ -12,30 +12,20 @@
 
 		if (value === null || value === undefined) {
 			result = undefined;
-		}
-		else if (value === "true") {
+		} else if (value === "true") {
 			result = true;
-		}
-		else if (value === "false") {
+		} else if (value === "false") {
 			result = false;
-		}
-		else if (value === "null") {
+		} else if (value === "null") {
 			result = null;
-		}
-		else if (value === "undefined") {
+		} else if (value === "undefined") {
 			result = undefined;
-		}
-		else if (value === "") {
+		} else if (value === "") {
 			result = value;
-		}
-		else if (!isNaN(tmp = Number(value))) {
+		} else if (!isNaN(tmp = Number(value))) {
 			result = tmp;
-		}
-		else if (REGEX_JSON.test(value)) {
+		} else {
 			result = parse(value) || value;
-		}
-		else {
-			result = value;
 		}
 
 		return result;

@@ -7,7 +7,7 @@
 	 * @param  {Boolean} header    [Optional] False to not include field names as first row
 	 * @return {String}            CSV string
 	 */
-	function encode(arg, delimiter = ",", header = true) {
+	function encode (arg, delimiter = ",", header = true) {
 		const obj = parse(arg) || arg;
 		let result = "";
 

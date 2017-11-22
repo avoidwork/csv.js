@@ -6,7 +6,7 @@
 	 * @return {Array}     Array of the keys
 	 */
 	const keys = function () {
-		if (typeof Object.keys == "function") {
+		if (typeof Object.keys === "function") {
 			return obj => Object.keys(obj);
 		} else {
 			return obj => {

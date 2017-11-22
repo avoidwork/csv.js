@@ -6,7 +6,7 @@
 	 * @param  {String} delimiter [Optional] Delimiter to split columns on, default is ","
 	 * @return {Array}            Array of Objects
 	 */
-	function decode(arg, delimiter = ",") {
+	function decode (arg, delimiter = ",") {
 		const regex = new RegExp(delimiter + "(?=(?:[^\"]|\"(?:[^\"])[^\"]*\")*$)"),
 			rows = trim(arg).split("\n"),
 			keys = rows.shift().split(delimiter),
@@ -23,7 +23,7 @@
 
 			n = -1;
 			while (++n < x) {
-				obj[keys[n]] = coerce(( row[n] || "" ).replace(/^"|"$/g, ""));
+				obj[keys[n]] = coerce((row[n] || "").replace(/^"|"$/g, ""));
 			}
 
 			result.push(obj);

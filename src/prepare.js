@@ -6,7 +6,7 @@
 	 * @param  {String} delimiter [Optional] Character to separate fields
 	 * @return {String}           CSV formatted String
 	 */
-	function prepare(input, delimiter) {
+	function prepare (input, delimiter) {
 		let output;
 
 		if (input instanceof Array) {

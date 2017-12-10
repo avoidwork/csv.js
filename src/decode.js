@@ -1,11 +1,3 @@
-	/**
-	 * Converts CSV to an Array of Objects
-	 *
-	 * @method decode
-	 * @param  {String} arg       CSV string
-	 * @param  {String} delimiter [Optional] Delimiter to split columns on, default is ","
-	 * @return {Array}            Array of Objects
-	 */
 	function decode (arg, delimiter = ",") {
 		const regex = new RegExp(delimiter + "(?=(?:[^\"]|\"(?:[^\"])[^\"]*\")*$)"),
 			rows = trim(arg).split("\n"),
@@ -14,16 +6,15 @@
 			nth = rows.length,
 			x = keys.length;
 
-		let i = -1,
-			n, obj, row;
+		let i = -1;
 
 		while (++i < nth) {
-			obj = {};
-			row = rows[i].split(regex);
+			let obj = {},
+				row = rows[i].split(regex),
+				n = -1;
 
-			n = -1;
 			while (++n < x) {
-				obj[keys[n]] = coerce(( row[n] || "" ).replace(/^"|"$/g, ""));
+				obj[keys[n]] = coerce(row[n] || "");
 			}
 
 			result.push(obj);

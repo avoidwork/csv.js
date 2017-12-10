@@ -1,12 +1,3 @@
-	/**
-	 * Encodes `arg` as CSV
-	 *
-	 * @method encode
-	 * @param  {String}  arg       Array, Object or JSON String to transform
-	 * @param  {String}  delimiter [Optional] Character to separate fields
-	 * @param  {Boolean} header    [Optional] False to not include field names as first row
-	 * @return {String}            CSV string
-	 */
 	function encode (arg, delimiter = ",", header = true, keyRef) {
 		const obj = parse(arg);
 		let result = "",

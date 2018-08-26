@@ -1,1 +1,1 @@
-	const trim = arg => arg.replace(/^(\s+|\t+)|(\s+|\t+|\n+)$/g, "");
+	const trim = arg => arg.trim();

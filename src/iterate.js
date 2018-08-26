@@ -1,5 +1,5 @@
 	const iterate = (obj, fn, keyRef) => {
-		if (typeof fn != "function") {
+		if (typeof fn !== "function") {
 			throw new Error("Invalid arguments");
 		}
 

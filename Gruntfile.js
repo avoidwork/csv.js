@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 		babel: {
 			options: {
 				sourceMap: false,
-				presets: ["babel-preset-es2015"]
+				presets: ["env"]
 			},
 			dist: {
 				files: {
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 				sourceMap: true,
 				sourceMapIncludeSources: true,
 				mangle: {
-					except: ["csv"]
+					reserved: ["csv"]
 				}
 			},
 			target: {

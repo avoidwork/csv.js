@@ -31,4 +31,4 @@ csv.js supports AMD loaders (require.js, curl.js, etc.), CommonJS, node.js & npm
 csv.js is licensed under BSD-3 https://raw.github.com/avoidwork/csv.js/master/LICENSE
 
 ## Copyright
-Copyright (c) 2017, Jason Mulligan <jason.mulligan@avoidwork.com>
+Copyright (c) 2018, Jason Mulligan <jason.mulligan@avoidwork.com>

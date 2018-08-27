@@ -2,10 +2,14 @@
 		let output;
 
 		if (input instanceof Array) {
-			output = `"${input.toString()}"`;
+			if (input.length === 0) {
+				output = "";
+			} else {
+				output = `"${input.toString()}"`;
 
-			if (REGEX_OBJTYPE.test(output)) {
-				output = `"${encode(input, delimiter)}"`;
+				if (REGEX_OBJTYPE.test(output)) {
+					output = `"${encode(input, delimiter)}"`;
+				}
 			}
 		} else if (input instanceof Object) {
 			output = `"${encode(input, delimiter)}"`;

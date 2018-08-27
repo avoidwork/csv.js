@@ -4,15 +4,17 @@
 			ref;
 
 		if (obj instanceof Array) {
-			if (obj[0] instanceof Object) {
-				if (header) {
-					ref = keys(obj[0]);
-					result = ref.join(delimiter) + "\n";
-				}
+			if (obj.length > 0) {
+				if (obj[0] instanceof Object) {
+					if (header) {
+						ref = keys(obj[0]);
+						result = ref.join(delimiter) + "\n";
+					}
 
-				result += obj.map(i => encode(i, delimiter, false, ref)).join("\n");
-			} else {
-				result += prepare(obj, delimiter) + "\n";
+					result += obj.map(i => encode(i, delimiter, false, ref)).join("\n");
+				} else {
+					result += prepare(obj, delimiter) + "\n";
+				}
 			}
 		} else {
 			if (header) {

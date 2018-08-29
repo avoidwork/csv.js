@@ -5,10 +5,12 @@
 			if (input.length === 0) {
 				output = "";
 			} else {
-				output = `"${input.toString()}"`;
+				output = input.toString();
 
 				if (REGEX_OBJTYPE.test(output)) {
 					output = `"${encode(input, delimiter)}"`;
+				} else if (output.includes(delimiter)) {
+					output = `"${output}"`;
 				}
 			}
 		} else if (input instanceof Object) {

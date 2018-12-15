@@ -3,7 +3,7 @@
 		let result = "",
 			ref;
 
-		if (obj instanceof Array) {
+		if (Array.isArray(obj)) {
 			if (obj.length > 0) {
 				if (obj[0] instanceof Object) {
 					if (header) {

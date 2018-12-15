@@ -1,5 +1,5 @@
 	const iface = {
-		decode: decode,
-		encode: encode,
+		decode,
+		encode,
 		version: "{{VERSION}}"
 	};

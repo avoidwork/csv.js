@@ -1,7 +1,7 @@
 	function prepare (input, delimiter) {
 		let output;
 
-		if (input instanceof Array) {
+		if (Array.isArray(input)) {
 			if (input.length === 0) {
 				output = "";
 			} else {

@@ -14,7 +14,7 @@
 				}
 			}
 		} else if (input instanceof Object) {
-			output = `"${encode(input, delimiter)}"`; // eslint-disable-line no-use-before-define
+			output = `"${JSON.stringify(input)}"`; // eslint-disable-line no-use-before-define
 		} else if (typeof input === "string") {
 			output = input.indexOf(delimiter) > -1 && input.charAt(0) !== "\"" ? `"${input}"` : input;
 		} else {

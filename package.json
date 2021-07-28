@@ -1,7 +1,7 @@
 {
   "name": "csv.js",
   "description": "Simplify encoding & decoding CSV",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/avoidwork/csv.js",
   "author": "Jason Mulligan <jason.mulligan@avoidwork.com>",
   "license": "BSD-3-Clause",

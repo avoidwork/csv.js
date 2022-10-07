@@ -2,6 +2,9 @@
 /test/
 /src/
 /lib/csv.min.js
+.idea
+.vscode
+.history
 .git
 .gitignore
 .eslintrc
